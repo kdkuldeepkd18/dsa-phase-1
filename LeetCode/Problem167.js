@@ -34,3 +34,21 @@ numbers is sorted in non-decreasing order.
 -1000 <= target <= 1000
 The tests are generated such that there is exactly one solution.
 */
+
+/**
+ * @param {number[]} numbers
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(numbers, target) {
+    for (let i=0; i<numbers.length; i++) {
+        for (let j = numbers.length-1; j>0; j--) {
+            if ((numbers[i]+numbers[j]) < target) {
+                break;
+            }
+            if ((numbers[i]+numbers[j]) === target) {
+                return [numbers.indexOf(numbers[i])+1, j+1]
+            }
+        }
+    }
+};
