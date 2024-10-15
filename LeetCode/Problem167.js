@@ -41,14 +41,16 @@ The tests are generated such that there is exactly one solution.
  * @return {number[]}
  */
 var twoSum = function(numbers, target) {
-    for (let i=0; i<numbers.length; i++) {
-        for (let j = numbers.length-1; j>0; j--) {
-            if ((numbers[i]+numbers[j]) < target) {
-                break;
-            }
-            if ((numbers[i]+numbers[j]) === target) {
-                return [numbers.indexOf(numbers[i])+1, j+1]
-            }
+    let left = 0;
+    let right = numbers.length-1;
+    while (left<=right) {
+        if ((numbers[left]+numbers[right])===target) {
+            return [left+1, right+1];
+        }
+        if ((numbers[left]+numbers[right])>target) {
+            right--;
+        } else {
+            left++;
         }
     }
 };
