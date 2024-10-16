@@ -26,3 +26,12 @@ Constraints:
 nums contains distinct values sorted in ascending order.
 -104 <= target <= 104
 */
+
+var searchInsert = function(nums, target) {
+    for (let i=0; i<nums.length; i++) {
+        if(nums[i]>=target) {
+            return i;
+        }
+    }
+    return nums.length;
+};
