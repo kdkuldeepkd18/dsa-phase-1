@@ -44,3 +44,60 @@ Constraints:
 -104 <= nums[i] <= 104
 nums is sorted in non-decreasing order.
 */
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var removeDuplicates = function(nums) {
+    let index = 1;
+    for (let i = 0; i<nums.length-1; i++) {
+        if (nums[i] != nums[i+1]) {
+            nums[index] = nums[i+1];
+            index++;
+        }
+    }
+    return index;
+};
+
+/**
+ * @param {number[]} nums1
+ * @param {number} m
+ * @param {number[]} nums2
+ * @param {number} n
+ * @return {void} Do not return anything, modify nums1 in-place instead.
+ */
+var merge = function(nums1, m, nums2, n) {
+    let index1 = 0;
+    let index2 = 0;
+    while(index1<0) {
+        if(nums1[index1]>=nums2[index2]) {
+            let temp = nums1[index1 + 1];
+            nums1[index1 + 1] = nums2[index2];
+            nums2[index2] = temp;
+            index1++;
+        } else {
+            index2++
+        }
+    }
+}
+
+/**
+ * @param {number[]} numbers
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(numbers, target) {
+    let left = 0;
+    let right = numbers.length-1;
+    while (left<=right) {
+        if ((numbers[left]+numbers[right])===target) {
+            return [left+1, right+1];
+        }
+        if ((numbers[left]+numbers[right])>target) {
+            right--;
+        } else {
+            left++;
+        }
+    }
+};s
